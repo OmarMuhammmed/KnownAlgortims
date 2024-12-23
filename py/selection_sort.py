@@ -1,25 +1,47 @@
-def selection_sort(list):
-    """
-    The `selection_sort` function implements the selection sort algorithm to sort a given array in
-    ascending order.
+
+def find_min(arr, start, end ):
+    min_index = start
+    for i in range(start + 1, end):
+        if arr[i] < arr[min_index]:
+            min_index = i
+    return min_index
+
+def selection_sort(arr):
+   for i in range(len(arr)):
+       min_index = find_min(arr, i, len(arr))
+       arr[i], arr[min_index] = arr[min_index], arr[i]
+
+
+
+ 
+def print_array(arr):
+    for val in arr:
+        print(val, end=" ")
+    print()
+
+if __name__ == "__main__":
+    arr = [64, 25, 12, 22, 11]
     
-    :param arr: The `selection_sort` function you provided implements the selection sort algorithm to
-    sort a given list `arr` in ascending order. The function iterates through the list and selects the
-    minimum element in each iteration and swaps it with the element at the current position
-    :return: The `selection_sort` function is returning the input array `arr` after sorting it in
-    ascending order using the selection sort algorithm.
-    """
-    n = len(list)
-   
-    for j in range(n): 
+    print("Original array: ", end="")
+    print_array(arr)
+    
+    selection_sort(arr)
+    
+    print("Sorted array: ", end="")
+    print_array(arr)
 
-        min_num = j
-     
-        for i in range(j + 1, n):  
-            if list[i] < list[min_num]: 
-                min_num = i  
-        
-        list[j], list[min_num] = list[min_num], list[j]
-        
-    return list
+# one function selection_sort
+def selection_sort(arr):
+    n = len(arr)
+    for i in range(n - 1): # last Elment is sorted by default 
 
+        min_idx = i
+    
+        for j in range(i + 1, n):
+
+            if arr[j] < arr[min_idx]:
+
+                min_idx = j
+        
+        
+        arr[i], arr[min_idx] = arr[min_idx], arr[i]    
