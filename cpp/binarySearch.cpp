@@ -2,7 +2,7 @@
 using namespace std;
 
 
-int binarySearch(int arr[], int size, int value)
+int binarySearch(int arr[], int size, int key)
 {
     int low = 0 ;
     int high = size - 1 ;
@@ -10,10 +10,10 @@ int binarySearch(int arr[], int size, int value)
     while ( low <= high ) 
     {
         int mid = (low + high) / 2 ; 
-        if (arr[mid] == value) 
+        if (arr[mid] == key) 
             return mid ; 
 
-        else if (arr[mid] < value)  
+        else if (arr[mid] < key)  
             low = mid + 1 ;
 
         else 
