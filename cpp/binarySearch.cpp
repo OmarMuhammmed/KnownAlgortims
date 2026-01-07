@@ -4,12 +4,13 @@ using namespace std;
 
 int binarySearch(int arr[], int size, int key)
 {
-    int low = 0 ;
-    int high = size - 1 ;
+    int low = 0 ; // first element
+    int high = size - 1 ; // last element
 
     while ( low <= high ) 
     {
         int mid = (low + high) / 2 ; 
+
         if (arr[mid] == key) 
             return mid ; 
 
@@ -21,6 +22,39 @@ int binarySearch(int arr[], int size, int key)
     }
     return -1 ; 
 }
+
+
+
+
+int binarySearch(int arr[], int size, int key){
+
+    int low = 0 ;
+    int high = size - 1;
+
+    while (low < high){
+        int mid = (low + high) / 2 ;
+
+        if (arr[mid] == key ){
+            return key ;
+        }
+        else if (arr[mid] < key){
+            low = mid + 1 ;
+        }
+        else{
+            high = mid - 1 ; 
+        }
+    }
+    return -1 ; 
+}
+
+
+
+
+
+
+
+
+
 
 
 
